@@ -1,0 +1,38 @@
+
+<main class="main">
+
+    <!-- breadcrumb -->
+    <div class="site-breadcrumb" style="background: url(assets/img/breadcrumb/01.jpg)">
+        <div class="container">
+            <!-- <h2 class="text-center">Area del administrador</h2> -->
+          
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+
+
+    <!-- user-dashboard -->
+    <div class="user-profile py-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                  <app-sidebar></app-sidebar>
+                </div>
+                <div class="col-lg-9" >
+                    <div class="user-profile-wrapper">
+                      <app-dashboard [hidden]="store.option() !== 'dashboard'"></app-dashboard>
+                      <app-cliennts [hidden]="store.option() !== 'clientes'"></app-cliennts>
+                      <app-proveedores [hidden]="store.option() !== 'prestadores'"></app-proveedores>
+                      <app-categories [hidden]="store.option() !== 'categorias'"></app-categories>
+                      
+                     <app-settings [hidden]="store.option() !== 'settings'"></app-settings>
+                          
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- user-dashboard end -->
+
+</main>
