@@ -24,12 +24,12 @@ export class Dashboard implements OnInit, OnDestroy {
   };
 
   solicitudes = [
-    { id: '01', cliente: 'Juan Pérez',      servicio: 'Plomería / Reparación de fuga',      fecha: '20 Sep 2025', estado: 'Pendiente',   badge: 'badge-warning' },
-    { id: '02', cliente: 'María López',     servicio: 'Electricidad / Cambio de breaker',   fecha: '19 Sep 2025', estado: 'Asignado',    badge: 'badge-info' },
+    { id: '01', cliente: 'Juan Pérez',      servicio: 'Peluqueria',      fecha: '20 Oct 2025', estado: 'Pendiente',   badge: 'badge-warning' },
+   /*  { id: '02', cliente: 'María López',     servicio: 'Electricidad / Cambio de breaker',   fecha: '19 Sep 2025', estado: 'Asignado',    badge: 'badge-info' },
     { id: '03', cliente: 'Carlos Gómez',    servicio: 'Pintura / Mantenimiento fachada',    fecha: '18 Sep 2025', estado: 'Finalizado',  badge: 'badge-success' },
     { id: '04', cliente: 'Laura Rodríguez', servicio: 'Carpintería / Instalación de puertas',fecha: '18 Sep 2025', estado: 'En ejecución',badge: 'badge-primary' },
     { id: '05', cliente: 'Pedro Martínez',  servicio: 'Limpieza / Desinfección profunda',   fecha: '17 Sep 2025', estado: 'Cancelado',   badge: 'badge-danger' },
-  ];
+ */  ];
 
   async ngOnInit() {
     console.log('[Dashboard] init');

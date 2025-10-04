@@ -35,10 +35,10 @@ export class DashboardService {
 
   async fetchNotifications(limit = 10): Promise<NotificationItem[]> {
     return [
-      { id:'n1', icon:'far fa-clipboard-list', text:'Nueva solicitud de Plomería creada por Juan Pérez.', timeAgo:'hace 2 min' },
-      { id:'n2', icon:'far fa-user-check',     text:'Prestador María López completó verificación KYC.',   timeAgo:'hace 30 min' },
+      { id:'n1', icon:'far fa-clipboard-list', text:'Nueva solicitud de Peluqueria creada por Juan Pérez.', timeAgo:'hace 2 min' },
+     /*  { id:'n2', icon:'far fa-user-check',     text:'Prestador María López completó verificación KYC.',   timeAgo:'hace 30 min' },
       { id:'n3', icon:'far fa-wallet',         text:'Recarga IZIPAY de $50 aprobada para Carlos Gómez.',  timeAgo:'hace 3 horas' },
       { id:'n4', icon:'far fa-check-circle',   text:'Solicitud #SRV-1042 ha sido Finalizada.',            timeAgo:'ayer' }
-    ];
+  */   ];
   }
 }
