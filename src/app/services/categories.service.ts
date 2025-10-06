@@ -163,4 +163,17 @@ export class CategoriesService {
   async remove(id: string): Promise<void> {
     await this.pb.collection('categories').delete(id);
   }
+
+  async getCategories() {
+    try {
+      return await this.pb.collection('categories').getFullList({
+        sort: 'order',
+        expand: 'subs' // Asegúrate de que 'subs' sea el nombre correcto de la relación en PocketBase
+      });
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      throw error;
+    }
+  }
+
 }

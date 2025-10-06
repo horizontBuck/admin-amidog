@@ -11,7 +11,9 @@ type Option =
   | 'notificaciones'
   | 'ajustes'
   | 'categorias'
-  | 'settings';
+  | 'settings'
+  | 'productos'
+  | 'services';
 
 @Component({
   selector: 'app-sidebar',

@@ -18,7 +18,9 @@ export type OptionMain =
   | 'notificaciones'
   | 'ajustes'
   | 'categorias'
-  | 'settings';
+  | 'settings'
+  | 'productos'
+  | 'services';
 
 export type AjustesTab = 'categorias' | 'cupones' | 'auditoria';
 

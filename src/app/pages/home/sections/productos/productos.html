@@ -1,0 +1,210 @@
+<div class="user-profile py-120">
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-lg-12">
+                <div class="user-profile-wrapper">
+                    <div class="user-profile-card add-listing">
+                        <h4 class="user-profile-card-title">Agregar producto</h4>
+                        <div class="col-lg-12">
+                           <div class="user-profile py-120">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="user-profile-wrapper">
+                                            <div class="user-profile-card add-listing">
+                                                <form #productForm="ngForm" (ngSubmit)="onSubmit()" class="add-listing-form" enctype="multipart/form-data">
+                                                    <h5 class="mb-4">Información básica</h5>
+                                                    <div class="row">
+                                                        <!-- Campo de categoría -->
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                    <label>Categoría *</label>
+                                                                    <select class="form-control" 
+                                                                            [(ngModel)]="product.category" 
+                                                                            name="category" 
+                                                                            (change)="onCategoryChange(product.category)"
+                                                                            required>
+                                                                        <option value="">Seleccione una categoría</option>
+                                                                        <option *ngFor="let category of categories" 
+                                                                                [value]="category.id"
+                                                                                [disabled]="!category.active">
+                                                                            {{ category.name }}
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Campo de subcategoría -->
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Subcategoría</label>
+                                                                    <select class="form-control" 
+                                                                            [(ngModel)]="product.subcategory" 
+                                                                            name="subcategory"
+                                                                            [disabled]="!product.category">
+                                                                        <option value="">Seleccione una subcategoría</option>
+                                                                        <option *ngFor="let sub of filteredSubcategories" 
+                                                                                [value]="sub.id"
+                                                                                [disabled]="!sub.active">
+                                                                            {{ sub.name }}
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Nombre</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.name" 
+                                                                           name="name" 
+                                                                           required 
+                                                                           placeholder="Nombre del producto">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Precio</label>
+                                                                    <input type="number" class="form-control" 
+                                                                           [(ngModel)]="product.price" 
+                                                                           name="price" 
+                                                                           required 
+                                                                           min="0" 
+                                                                           step="0.01" 
+                                                                           placeholder="Precio">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Stock</label>
+                                                                    <input type="number" class="form-control" 
+                                                                           [(ngModel)]="product.stock" 
+                                                                           name="stock" 
+                                                                           required 
+                                                                           min="0" 
+                                                                           placeholder="Cantidad en stock">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Presentación</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.presentation" 
+                                                                           name="presentation" 
+                                                                           placeholder="Ej: Caja, Paquete, Unidad">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Color</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.color" 
+                                                                           name="color" 
+                                                                           placeholder="Color del producto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Marca</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.brand" 
+                                                                           name="brand" 
+                                                                           placeholder="Marca del producto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Formato</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.format" 
+                                                                           name="format" 
+                                                                           placeholder="Formato del producto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Proveedor</label>
+                                                                    <input type="text" class="form-control" 
+                                                                           [(ngModel)]="product.proveedor" 
+                                                                           name="proveedor" 
+                                                                           placeholder="Nombre del proveedor">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Fecha de caducidad</label>
+                                                                    <input type="date" class="form-control" 
+                                                                           [(ngModel)]="product.expiration_date" 
+                                                                           name="expiration_date">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label>Descripción</label>
+                                                                    <textarea class="form-control" 
+                                                                              [(ngModel)]="product.description" 
+                                                                              name="description" 
+                                                                              rows="3" 
+                                                                              placeholder="Descripción detallada del producto"></textarea>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            <!-- Carga de imagen -->
+                                                            <div class="form-group">
+                                                                <label>Imágenes del producto</label>
+                                                                <div class="custom-file">
+                                                                  <input type="file" 
+                                                                         class="custom-file-input" 
+                                                                         id="productImages"
+                                                                         (change)="onImageSelected($event)"
+                                                                         accept="image/*"
+                                                                         multiple>
+                                                                  <label class="custom-file-label" for="productImages">
+                                                                    {{ selectedImages.length > 0 ? selectedImages.length + ' imágenes seleccionadas' : 'Seleccionar imágenes' }}
+                                                                  </label>
+                                                                </div>
+                                                                
+                                                                <!-- Image previews -->
+                                                                <div class="row mt-3">
+                                                                  <div class="col-3 mb-3" *ngFor="let preview of imagePreviews; let i = index">
+                                                                    <div class="position-relative">
+                                                                      <img [src]="preview" 
+                                                                           class="img-thumbnail" 
+                                                                           style="height: 150px; width: 100%; object-fit: cover;"
+                                                                           alt="Vista previa">
+                                                                      <button type="button" 
+                                                                              class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1"
+                                                                              (click)="removeImage(i)">
+                                                                        <i class="fas fa-times"></i>
+                                                                      </button>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+
+                                                            <div class="col-12 mt-4">
+                                                                <button type="submit" 
+                                                                        class="btn btn-primary" 
+                                                                        [disabled]="loading || !productForm.form.valid">
+                                                                    <span *ngIf="!loading">Guardar Producto</span>
+                                                                    <span *ngIf="loading" 
+                                                                        class="spinner-border spinner-border-sm" 
+                                                                        role="status" 
+                                                                        aria-hidden="true">
+                                                                    </span>
+                                                                    <span *ngIf="loading"> Guardando...</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

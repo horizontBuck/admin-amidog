@@ -11,6 +11,8 @@ import { Dashboard } from './sections/dashboard/dashboard';
 import { Sidebar } from './sidebar/sidebar';
 import { CategoriesComponent } from './sections/categories/categories';
 import { SettingsComponent } from './sections/settings/settings';
+import { Productos } from './sections/productos/productos';
+import { Services } from './sections/services/services';
 
 // tipado del menú que usa el store
 type Option =
@@ -22,7 +24,9 @@ type Option =
   | 'notificaciones'
   | 'ajustes'
   | 'categorias'
-  | 'settings';
+  | 'settings'
+  | 'productos'
+  | 'services';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +38,10 @@ type Option =
     Cliennts,
     CategoriesComponent,
     SettingsComponent,
-    Proveedores],
+    Proveedores,
+    Productos,
+    Services,
+  ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })

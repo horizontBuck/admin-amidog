@@ -37,15 +37,18 @@
         </li> -->
       
         <!-- Solicitudes -->
-        <li (click)="setOption('solicitudes')">
+        <li (click)="setOption('services')">
           <a style="cursor: pointer;" 
-          [class.active]="store.option()==='solicitudes'"
+          [class.active]="store.option()==='services'"
           >
             <i class="far fa-clipboard-list"></i> Servicio
           </a>
         </li>
         <li>
-          <a style="cursor: pointer;" (click)="setOption('notificaciones')">
+          <a style="cursor: pointer;"  
+        [class.active]="store.option()==='productos'"
+               
+        (click)="setOption('productos')">
             <i class="far fa-bell"></i> Productos
           </a>
         </li>

@@ -9,7 +9,9 @@ type Option =
   | 'solicitudes'
   | 'finanzas'
   | 'notificaciones'
-  | 'ajustes';
+  | 'ajustes'
+  | 'productos'
+  | 'services';
 @Component({
   selector: 'app-header',
   standalone: true,
